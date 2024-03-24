@@ -1,42 +1,56 @@
-// 1) Создать переменную num со значением 266219 (тип данных число)
-let num = 266219
+// 1).
+let lang = "ru";
 
-
-// 2) Вывести в консоль произведение (умножение) цифр этого числа
-// другое не моожет подставить так как умножение на 0 дает 0
-// поэтому берем 1 (матеша)
-let res = 1
-// пока наше число больше цифры 0 наш цикл выполняется
-while (num > 0) { 
-  // присваииваем пустой переменной пооследнюю цифру 
-  let lastDig = num % 10
-  // умножаем 1 на наше посл число и получаем посл число
-  res *= lastDig
-  // нужно теперь откинуть последнюю цифру нашего осн числа,
-  // для этого делим число на 10, получаем запятую перед посл числом
-  // ии снижаем к ПОЛУ все ахахахахах изи, такк как floor === пол xDDDD
-  num = Math.floor(num / 10)
+ruDays = "Понедельник, Вторник, Среда, Пятница, Суббота, Воскресенье";
+enDays = "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday";
+//через if
+if (lang === "ru") {
+  console.log(ruDays);
+} else if (lang === "en") {
+  console.log(enDays);
 }
-// после этого, каждая итерация дает нам -1 посл число и умножает на откинутое.
-console.log(res);
+// через switch-case
+switch (lang) {
+  case "ru":
+    console.log(ruDays);
+    break;
+  case "en":
+    console.log(enDays);
+    break;
+  default:
+    console.log("English brooooo!");
+}
+// через массив без ифов и switch (не понял почему автоматом убираются ковычки из en и ru)
+let daysWeek = {
+  ru: [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ],
+  en: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ],
+};
+// Очень много сравниваю с питоном (естественно), поставил сначало let day... потом решил убрать и сработало... это новый стандарт или..?
+for (day of daysWeek[lang]) {
+  console.log(day);
+}
 
+// 2)
+let namePerson = "Артем";
 
-// 3) Полученный результат возвести в степень 3, 
-// используя только 1 оператор (Math.pow не подходит)
-res **= 3
-console.log(res);
-
-
-// 4) Вывести в консоль первые 2 цифры полученного числа
-
-let intoStr = res.toString();
-console.log(intoStr);
-console.log(typeof intoStr);
-
-let firstDigs = parseInt(intoStr.slice(0,2))
-console.log(firstDigs);
-
-
-
-
-
+namePerson === "Артем"
+  ? console.log("директор")
+  : namePerson === "Александр"
+  ? console.log("преподаватель")
+  : console.log("студент");
